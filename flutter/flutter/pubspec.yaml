@@ -1,4 +1,4 @@
-name: ffmpeg_kit_flutter
+name: ffmpeg_kit_flutter_min_gpl
 description: FFmpeg Kit for Flutter. Supports Android, iOS and macOS platforms.
 repository: https://github.com/arthenica/ffmpeg-kit
 issue_tracker: https://github.com/arthenica/ffmpeg-kit/issues

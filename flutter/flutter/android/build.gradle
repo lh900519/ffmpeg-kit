@@ -13,6 +13,12 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+
+        flatDir {
+            // dirs project(':xiaohongshu_kit').file('libs'), project(':xiaohongshu_kit').file('xhs-share-sdk')
+            dirs project(':ffmpeg_kit_flutter_min_gpl').file('libs')
+            // dirs project(':xiaohongshu_kit').file('xhs-share-sdk')
+        }
     }
 }
 
@@ -49,5 +55,16 @@ android {
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.5.0'
-    implementation 'com.arthenica:ffmpeg-kit-https:6.0-2'
+
+    //start:ffmpeg-kit-https
+    // implementation 'com.arthenica:ffmpeg-kit-https:6.0-2'
+    // FmpegKit has been officially retired.Place dependent libraries locally
+    // The Maven configuration is immutable and currently not required; it’s retained solely as a precaution.
+    // implementation files('./libs/ffmpeg-kit-https-6.0-2.aar')
+    // implementation files('./libs/smart-exception-java-0.2.1.jar')
+    // implementation files('./libs/smart-exception-common-0.2.1.jar')
+
+    implementation(name: 'ffmpeg-kit-https-6.0-2', ext: 'aar')
+    implementation(name: 'smart-exception-java-0.2.1', ext: 'jar')
+    implementation(name: 'smart-exception-common-0.2.1', ext: 'jar')
 }

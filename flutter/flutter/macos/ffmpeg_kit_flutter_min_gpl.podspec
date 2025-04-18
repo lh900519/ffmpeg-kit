@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   s.source_files        = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
 
-  s.default_subspec = 'min-gpl'
+  # s.default_subspec = 'min-gpl'
+  s.default_subspec = 'min-gpl-local'
 
   s.dependency          'FlutterMacOS'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
@@ -39,6 +40,14 @@ Pod::Spec.new do |s|
     ss.public_header_files  = 'Classes/**/*.h'
     ss.dependency 'ffmpeg-kit-macos-min-gpl', "6.0"
     ss.osx.deployment_target = '10.15'
+  end
+
+  s.subspec 'min-gpl-local' do |ss|
+    ss.source_files         = 'Classes/**/*'
+    ss.public_header_files  = 'Classes/**/*.h'
+    # ss.dependency 'ffmpeg-kit-macos-min-gpl', "6.0"
+    ss.ios.deployment_target = '12.1'
+    ss.vendored_frameworks = 'Frameworks/ffmpeg-kit-macos-min-gpl/ffmpegkit.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavdevice.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavcodec.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavfilter.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavformat.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavutil.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libswresample.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libswscale.xcframework'
   end
 
   s.subspec 'min-gpl-lts' do |ss|

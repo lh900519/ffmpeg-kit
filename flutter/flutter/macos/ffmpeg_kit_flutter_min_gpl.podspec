@@ -46,7 +46,7 @@ Pod::Spec.new do |s|
     ss.source_files         = 'Classes/**/*'
     ss.public_header_files  = 'Classes/**/*.h'
     # ss.dependency 'ffmpeg-kit-macos-min-gpl', "6.0"
-    ss.ios.deployment_target = '12.1'
+    ss.osx.deployment_target = '10.15'
     ss.vendored_frameworks = 'Frameworks/ffmpeg-kit-macos-min-gpl/ffmpegkit.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavdevice.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavcodec.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavfilter.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavformat.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libavutil.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libswresample.xcframework', 'Frameworks/ffmpeg-kit-macos-min-gpl/libswscale.xcframework'
   end
 

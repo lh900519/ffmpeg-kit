@@ -2041,6 +2041,8 @@ downloaded_library_sources() {
     exit 1
   fi
 
+  "${BASEDIR}/scripts/apply-videotoolbox-timestamp-patch.sh" || exit 1
+
   for library in {1..50}; do
     if [[ ${!library} -eq 1 ]]; then
       library_name=$(get_library_name $((library - 1)))

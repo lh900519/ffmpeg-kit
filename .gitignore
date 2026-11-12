@@ -3,3 +3,7 @@
 /prebuilt/
 .DS_Store
 .idea
+
+# Tool-local metadata
+.codex/
+.agents/

@@ -1,0 +1,49 @@
+diff --git a/libavcodec/videotoolboxenc.c b/libavcodec/videotoolboxenc.c
+index 5697147..fa6efa9 100644
+--- a/libavcodec/videotoolboxenc.c
++++ b/libavcodec/videotoolboxenc.c
+@@ -27,6 +27,7 @@
+ #include "libavutil/opt.h"
+ #include "libavutil/avassert.h"
+ #include "libavutil/avstring.h"
++#include "libavutil/mathematics.h"
+ #include "libavcodec/avcodec.h"
+ #include "libavutil/pixdesc.h"
+ #include "libavutil/hwcontext_videotoolbox.h"
+@@ -2020,7 +2021,6 @@ static int vtenc_cm_to_avpacket(
+     size_t  out_buf_size;
+     size_t  sei_nalu_size = 0;
+     int64_t dts_delta;
+-    int64_t time_base_num;
+     int nalu_count;
+     CMTime  pts;
+     CMTime  dts;
+@@ -2112,6 +2112,11 @@ static int vtenc_cm_to_avpacket(
+     pts = CMSampleBufferGetPresentationTimeStamp(sample_buffer);
+     dts = CMSampleBufferGetDecodeTimeStamp      (sample_buffer);
+ 
++    if (CMTIME_IS_INVALID(pts) || pts.timescale <= 0) {
++        av_log(avctx, AV_LOG_ERROR, "PTS is invalid.\n");
++        return AVERROR_EXTERNAL;
++    }
++
+     if (CMTIME_IS_INVALID(dts)) {
+         if (!vtctx->has_b_frames) {
+             dts = pts;
+@@ -2122,9 +2127,13 @@ static int vtenc_cm_to_avpacket(
+     }
+ 
+     dts_delta = vtctx->dts_delta >= 0 ? vtctx->dts_delta : 0;
+-    time_base_num = avctx->time_base.num;
+-    pkt->pts = pts.value / time_base_num;
+-    pkt->dts = dts.value / time_base_num - dts_delta;
++    if (dts.timescale <= 0) {
++        av_log(avctx, AV_LOG_ERROR, "DTS timescale is invalid.\n");
++        return AVERROR_EXTERNAL;
++    }
++
++    pkt->pts = av_rescale_q(pts.value, (AVRational){ 1, pts.timescale }, avctx->time_base);
++    pkt->dts = av_rescale_q(dts.value, (AVRational){ 1, dts.timescale }, avctx->time_base) - dts_delta;
+ 
+     return 0;
+ }

@@ -1,0 +1,45 @@
+# Apple framework binary SHA-256
+
+Hashes are for the framework executable in each `Info.plist` slice after CoreMedia linkage normalization and replacement.
+
+## iOS
+
+| Framework | Slice | Architectures | SHA-256 |
+|---|---|---|---|
+| ffmpegkit.xcframework | ios-arm64_arm64e | arm64, arm64e | `75135b8028402a037e5a5a2648e13eeaa8fc21ae596571a90d65e665b81159e4` |
+| ffmpegkit.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `40480facb965be89ff12ab1b7d30f68234c6763c94ef2f2027b97c349548510e` |
+| ffmpegkit.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `71837e72e5305d6ee3e855eee60f63118f790e6bdad0b8bb418ae56e904672ea` |
+| libavcodec.xcframework | ios-arm64_arm64e | arm64, arm64e | `5cc529706c03eec29b8207cb93674fdb3bcd61dff1aec7a43e97523179935182` |
+| libavcodec.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `9b6fc8e13b248cd1fdcf394d5b038dc27934358a415574a9443393deb60f5a28` |
+| libavcodec.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `cf08ff6d1777329b34ebf218d348219b56462cc3c40cfda889bf70b9736fc3a0` |
+| libavdevice.xcframework | ios-arm64_arm64e | arm64, arm64e | `2e17410c9b51ead98f7af8728c71b1568ae3b1b78b54c9097ab376c005991af4` |
+| libavdevice.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `bc5e162253635c55f4f9f62e5c5063596d14719e27bf35dc8f67fcd86b6b38fd` |
+| libavdevice.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `35471daa95b58f8ea6a4dbdc78cd2d62c5f336c94162ebccd8eb2974dcb220c7` |
+| libavfilter.xcframework | ios-arm64_arm64e | arm64, arm64e | `9b3c6698a69c01549e7a3b673b4396dc3686a026f9f829896ebfacc84fba0f73` |
+| libavfilter.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `8fb092c5581bbac5ef38aff3ed94f45d2b0f3944ca715f2a9cf99b7ea826adbb` |
+| libavfilter.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `6b2260d1c34c8441270fadce1f1756f22ab4d812c91cbc53deab914c7e265825` |
+| libavformat.xcframework | ios-arm64_arm64e | arm64, arm64e | `ccd005611e42fc86c78343d69c03fa6275b297a8ec3d6a4d98c6c8b001748a13` |
+| libavformat.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `9b28ad1375e54cb7efbfd932fba21b759c16ae3189f9dd35fec38b036af818c6` |
+| libavformat.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `d82ca1f825264171db4b3222eecf2cdca2b22c0fcd1fbd389578082773d30ae9` |
+| libavutil.xcframework | ios-arm64_arm64e | arm64, arm64e | `4922beec1d7c2a242209af224dcd7b0fdc6f4df9e15dd9ce988bb0353782525e` |
+| libavutil.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `952bdb985ef55a46788856af4fb91b89b1baf20211672aed13b1828cfe00f077` |
+| libavutil.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `26a1249bdd106035f5483da3b4d84c28dbcdc0d3617d7a092fc1fb5a0e742752` |
+| libswresample.xcframework | ios-arm64_arm64e | arm64, arm64e | `b93e8c372b6475e9f95b8e42a86a3faf9e4ddad9ed104597b0c8c121f08db0c1` |
+| libswresample.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `3495d49c3cb7b789780af9021a3365d90f5175ae2a24c8ab848e54bec62cedc5` |
+| libswresample.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `6dae4e73568ad0b0243c4b2709e48c251ff3b571c1c3c2e3492778ab32eaa09c` |
+| libswscale.xcframework | ios-arm64_arm64e | arm64, arm64e | `2fce2fe07faf2229307b125b9ade20f0f0e4a1feeed4fd926165fb613cffd9eb` |
+| libswscale.xcframework | ios-arm64_x86_64-maccatalyst | arm64, x86_64 | `e2ded0d4ad28a0207fa611ed607a08fe02174adbdf5ec4d5c8862fa13c998824` |
+| libswscale.xcframework | ios-arm64_x86_64-simulator | arm64, x86_64 | `899514eafb1b760adff637318b057ba0379f746a4ec64fb806964ef65907d011` |
+
+## macOS
+
+| Framework | Slice | Architectures | SHA-256 |
+|---|---|---|---|
+| ffmpegkit.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `fb28d06a8df3624b55605e8159438e85a9e24ed99a94107ad25172cf987d3665` |
+| libavcodec.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `b07db0948de962d6718a842bd65b3a4d5fb21241b2903f30bd0237c03d3a5184` |
+| libavdevice.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `10f17055348a04cf74782ef44b6e2ec923ee25429314f52176808f423a51388f` |
+| libavfilter.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `52cbc3e91eca19c4bcd22ecd3d12b0abd99a6000aa131a2b22e7e06ca04d37c5` |
+| libavformat.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `9ec65d29ee0252419fe90515a91b33dbdb053fc15095847a053ae8c66df499b4` |
+| libavutil.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `8b7b9bf16df0f2f0727a5d41cf1e4d563b2cdd8570d22cdee0e6f4e1f29249a1` |
+| libswresample.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `f4551ced4cbdcafec6529261a71c90195cc3b0bfc4a293f4b2987b533a4905a4` |
+| libswscale.xcframework | macos-arm64_x86_64 | arm64, x86_64 | `2110b1df8c9681ff39c507243bed18f70a2960866c5810725bb70def61fe8393` |

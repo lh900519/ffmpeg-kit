@@ -485,6 +485,7 @@ create_ffmpeg_kit_framework() {
 
     # COPY LIBRARY FILE
     cp "${FFMPEG_KIT_UNIVERSAL_LIBRARY_DIRECTORY}/lib/libffmpegkit.dylib" "${FFMPEG_KIT_FRAMEWORK_PATH}/Versions/A/ffmpegkit" 1>>"${BASEDIR}"/build.log 2>&1 || exit 1
+    "${STRIP:-strip}" -x "${FFMPEG_KIT_FRAMEWORK_PATH}/Versions/A/ffmpegkit" 1>>"${BASEDIR}"/build.log 2>&1 || exit 1
 
   else
 
@@ -500,6 +501,7 @@ create_ffmpeg_kit_framework() {
 
     # COPY LIBRARY FILE
     cp "${FFMPEG_KIT_UNIVERSAL_LIBRARY_DIRECTORY}/lib/libffmpegkit.dylib" "${FFMPEG_KIT_FRAMEWORK_PATH}"/ffmpegkit 1>>"${BASEDIR}"/build.log 2>&1 || exit 1
+    "${STRIP:-strip}" -x "${FFMPEG_KIT_FRAMEWORK_PATH}"/ffmpegkit 1>>"${BASEDIR}"/build.log 2>&1 || exit 1
 
   fi
 

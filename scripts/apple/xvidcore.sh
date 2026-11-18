@@ -13,6 +13,10 @@ esac
 # ALWAYS CLEAN THE PREVIOUS BUILD
 make distclean 2>/dev/null 1>/dev/null
 
+# Xvid 1.3.7 typedefs bool as int, but the Apple build compiles its C files
+# with C++11 flags. Remove the legacy typedef so Clang uses the built-in bool.
+${SED_INLINE} '/^typedef int bool;$/d' "${BASEDIR}/src/xvidcore/xvidcore/src/encoder.h"
+
 # WORKAROUNDS
 git checkout configure.in 1>>"${BASEDIR}"/build.log 2>&1
 if [[ ${FFMPEG_KIT_BUILD_TYPE} != "macos" ]]; then

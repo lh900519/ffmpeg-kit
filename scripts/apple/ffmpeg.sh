@@ -555,6 +555,11 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
+# SANITIZE FFMPEG_CONFIGURATION, FFMPEG_DATADIR AND AVCONV_DATADIR TO AVOID EMBEDDING HOST MACHINE PATHS
+${SED_INLINE} 's|^#define FFMPEG_CONFIGURATION .*|#define FFMPEG_CONFIGURATION ""|' "${BASEDIR}"/src/${LIB_NAME}/config.h 1>>"${BASEDIR}"/build.log 2>&1 || return 1
+${SED_INLINE} 's|^#define FFMPEG_DATADIR .*|#define FFMPEG_DATADIR ""|' "${BASEDIR}"/src/${LIB_NAME}/config.h 1>>"${BASEDIR}"/build.log 2>&1 || return 1
+${SED_INLINE} 's|^#define AVCONV_DATADIR .*|#define AVCONV_DATADIR ""|' "${BASEDIR}"/src/${LIB_NAME}/config.h 1>>"${BASEDIR}"/build.log 2>&1 || return 1
+
 build_ffmpeg() {
   if [[ -z ${NO_OUTPUT_REDIRECTION} ]]; then
     make -j$(get_cpu_count) 1>>"${BASEDIR}"/build.log 2>&1

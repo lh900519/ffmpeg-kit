@@ -19,7 +19,10 @@ Pod::Spec.new do |s|
   s.default_subspec = 'min-gpl-local'
 
   s.dependency          'FlutterMacOS'
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'YES',
+    'OTHER_CFLAGS' => '$(inherited) -ffile-prefix-map=$(PODS_ROOT)=. -ffile-prefix-map=$(SRCROOT)=.'
+  }
 
   s.subspec 'min' do |ss|
     ss.source_files         = 'Classes/**/*'
